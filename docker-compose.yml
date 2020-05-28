@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mysql:
+    container_name: mysql57
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    ports:
+      - ${PORT}:3306
+    volumes:
+      - ./var/lib/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASS}
+      MYSQL_USER: ${USER_NAME}
+      MYSQL_PASSWORD: ${USER_PASS}
